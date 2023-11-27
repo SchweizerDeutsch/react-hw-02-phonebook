@@ -26,7 +26,10 @@ class ContactForm extends Component {
 
   isContactExist = name => {
     const { contacts } = this.props;
-    return contacts.some(contact => contact.name === name);
+    const normalizedName = name.toLowerCase();
+    return contacts.some(
+      contact => contact.name.toLowerCase() === normalizedName
+    );
   };
 
   render() {
