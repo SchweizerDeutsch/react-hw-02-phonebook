@@ -15,21 +15,8 @@ class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
 
-    if (this.props.contacts.some(contact => contact.name === name)) {
-      alert(`${name} is already in contacts.`);
-      return;
-    }
-
     this.props.onAddContact(name, number);
     this.setState({ name: '', number: '' });
-  };
-
-  isContactExist = name => {
-    const { contacts } = this.props;
-    const normalizedName = name.toLowerCase();
-    return contacts.some(
-      contact => contact.name.toLowerCase() === normalizedName
-    );
   };
 
   render() {
