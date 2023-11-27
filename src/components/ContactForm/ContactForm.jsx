@@ -15,7 +15,7 @@ class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
 
-    if (this.isContactExist(name)) {
+    if (this.props.contacts.some(contact => contact.name === name)) {
       alert(`${name} is already in contacts.`);
       return;
     }

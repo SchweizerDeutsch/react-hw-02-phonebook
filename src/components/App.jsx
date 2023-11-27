@@ -21,6 +21,10 @@ class App extends Component {
       alert(`${name} is already in contacts.`);
       return;
     }
+    if (this.state.contacts.some(contact => contact.name === name)) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
 
     const newContact = {
       id: nanoid(),
